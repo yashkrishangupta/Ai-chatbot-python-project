@@ -1,0 +1,233 @@
+/* General styling */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hero section */
+.hero-section {
+    background-color: var(--bs-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-icon {
+    font-size: 10rem;
+    color: var(--bs-primary);
+    opacity: 0.8;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Chat container styling */
+#chat-container {
+    height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Message styling */
+.message-content {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+/* User message styling */
+.user-message {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-message .message-content {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+/* Bot message styling */
+.bot-message {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.bot-message .message-content {
+    background-color: var(--bs-dark);
+    color: white;
+}
+
+/* Typing indicator */
+.typing-indicator .message-content {
+    background-color: var(--bs-dark);
+    padding: 15px;
+    width: fit-content;
+}
+
+.dots {
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: var(--bs-light);
+    margin-right: 4px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+    margin-right: 0;
+}
+
+@keyframes pulse {
+    0%, 60%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    30% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* Feature card styling */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--bs-primary);
+}
+
+/* How it works styling */
+.step-number {
+    width: 30px;
+    height: 30px;
+    background-color: var(--bs-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Suggestion buttons */
+.suggestion-btn {
+    transition: all 0.3s ease;
+}
+
+.suggestion-btn:hover {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: white;
+}
+
+/* Footer styling */
+.footer {
+    margin-top: auto;
+}
+
+.social-icons a {
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--bs-primary) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .message-content {
+        max-width: 90%;
+    }
+    
+    #chat-container {
+        height: 350px;
+    }
+    
+    .hero-icon {
+        font-size: 6rem;
+    }
+}
+
+/* Scrollbar styling */
+#chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chat-container::-webkit-scrollbar-track {
+    background: var(--bs-dark);
+}
+
+#chat-container::-webkit-scrollbar-thumb {
+    background-color: var(--bs-secondary);
+    border-radius: 20px;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Status indicator */
+#status-indicator {
+    display: inline-block;
+    position: relative;
+}
+
+#status-indicator::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--bs-success);
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Accordion styling */
+.accordion-button:not(.collapsed) {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}

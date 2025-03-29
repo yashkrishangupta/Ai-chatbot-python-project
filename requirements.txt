@@ -1,0 +1,6 @@
+streamlit
+flask
+flask-sqlalchemy
+psycopg2
+email_validator
+gunicorn

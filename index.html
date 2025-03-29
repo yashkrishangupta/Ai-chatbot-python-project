@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant | Intelligent Chatbot</title>
+    
+    <!-- Bootstrap CSS from Replit theme -->
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <i class="fas fa-robot me-2"></i>
+                <span>AI Assistant</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features"><i class="fas fa-star me-1"></i> Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="fas fa-info-circle me-1"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq"><i class="fas fa-question-circle me-1"></i> FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section py-5 mb-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-3">Your Intelligent AI Assistant</h1>
+                    <p class="lead mb-4">Experience the power of conversation with our advanced AI chatbot. Get answers, assistance, and friendly chat whenever you need it.</p>
+                    <a href="#chat-section" class="btn btn-primary btn-lg me-2"><i class="fas fa-comments me-2"></i>Start Chatting</a>
+                    <a href="#features" class="btn btn-outline-light btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="hero-image-container">
+                        <i class="fas fa-robot hero-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Main Chat Section -->
+        <section id="chat-section" class="py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow">
+                        <div class="card-header bg-primary text-white">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-robot me-2"></i>
+                                <h5 class="mb-0">Chat with AI Assistant</h5>
+                                <div class="ms-auto">
+                                    <span id="status-indicator" class="badge bg-success">Online</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chat-container" class="d-flex flex-column overflow-auto mb-3">
+                                <!-- Chat messages will appear here -->
+                                <div class="bot-message mb-3">
+                                    <div class="message-content">
+                                        <p class="mb-0">Hello! I'm your AI Assistant. How can I help you today?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="typing-indicator" class="typing-indicator mb-3 d-none">
+                                <div class="message-content">
+                                    <div class="dots">
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <form id="chat-form" class="d-flex">
+                                <input 
+                                    type="text" 
+                                    id="message-input" 
+                                    class="form-control me-2" 
+                                    placeholder="Type your message here..." 
+                                    autocomplete="off"
+                                    required
+                                >
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="card-footer bg-dark">
+                            <div class="suggestions">
+                                <small class="text-muted">Try asking:</small>
+                                <div class="d-flex flex-wrap gap-2 mt-2">
+                                    <button class="btn btn-sm btn-outline-secondary suggestion-btn">Tell me a joke</button>
+                                    <button class="btn btn-sm btn-outline-secondary suggestion-btn">What can you do?</button>
+                                    <button class="btn btn-sm btn-outline-secondary suggestion-btn">How are you today?</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-5">
+            <h2 class="text-center mb-5">AI Assistant Features</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                            <h5 class="card-title">Natural Conversations</h5>
+                            <p class="card-text">Enjoy natural, flowing conversations with our advanced language processing capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h5 class="card-title">Instant Responses</h5>
+                            <p class="card-text">Get immediate answers to your questions without any unnecessary waiting time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-laugh"></i>
+                            </div>
+                            <h5 class="card-title">Personality & Humor</h5>
+                            <p class="card-text">Chat with a bot that has personality, can tell jokes, and make conversation enjoyable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="mb-4">About Our AI Assistant</h2>
+                    <p>Our AI Assistant is designed to provide helpful, engaging conversation whenever you need it. Using pattern matching and natural language processing, our assistant can understand your queries and respond appropriately.</p>
+                    <p>The assistant can help with basic information, engage in casual conversation, tell jokes, and more. While it doesn't have access to real-time data like weather or current news, it's always ready to chat and assist within its capabilities.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">How It Works</h5>
+                            <div class="how-it-works">
+                                <div class="step d-flex align-items-start mb-3">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content ms-3">
+                                        <h6>You Ask a Question</h6>
+                                        <p class="text-muted">Type your message in the chat interface and press send.</p>
+                                    </div>
+                                </div>
+                                <div class="step d-flex align-items-start mb-3">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content ms-3">
+                                        <h6>AI Processes Your Query</h6>
+                                        <p class="text-muted">Our system analyzes your message to understand your intent.</p>
+                                    </div>
+                                </div>
+                                <div class="step d-flex align-items-start">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content ms-3">
+                                        <h6>Get Your Answer</h6>
+                                        <p class="text-muted">Receive a helpful response based on pattern matching and predefined knowledge.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-5">
+            <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                    What can this AI Assistant do?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our AI Assistant can engage in conversation, answer questions within its knowledge base, tell jokes, and provide friendly chat. It uses pattern matching to understand your queries and generate appropriate responses.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                    Does the Assistant have access to real-time data?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    No, currently our AI Assistant does not have access to real-time data such as weather, news, or time. It operates based on pre-programmed responses and pattern matching.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                    Is my conversation with the Assistant private?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, your conversations with our AI Assistant are processed locally and are not stored on external servers. Your privacy is important to us.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                    Can I teach the Assistant new things?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Currently, the AI Assistant operates on pre-defined patterns and responses. It cannot learn new information from user interactions at this time.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-4 bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="mb-3"><i class="fas fa-robot me-2"></i>AI Assistant</h5>
+                    <p class="mb-3">Your intelligent chatbot companion, always ready to help and chat.</p>
+                    <p class="mb-0">&copy; 2025 AI Assistant. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h6 class="mb-3">Quick Links</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-light"><i class="fas fa-angle-right me-1"></i>Home</a></li>
+                                <li><a href="#features" class="text-light"><i class="fas fa-angle-right me-1"></i>Features</a></li>
+                                <li><a href="#about" class="text-light"><i class="fas fa-angle-right me-1"></i>About</a></li>
+                                <li><a href="#faq" class="text-light"><i class="fas fa-angle-right me-1"></i>FAQ</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="mb-3">Connect With Us</h6>
+                            <div class="social-icons">
+                                <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-light me-2"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="text-light"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
