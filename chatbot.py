@@ -6,8 +6,9 @@ class ChatBot:
     A chatbot that uses Google's Gemini API to generate responses dynamically.
     """
 
-    def __init__(self, api_key):
+    def __init__(self):
         # Configure Gemini API
+        api_key = "AIzaSyA9Q4j0JqXyR50Xj-uYgfM49nbQoMg7pMs"  
         genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel("gemini-pro")  # Use an appropriate Gemini model
         logging.debug("ChatBot initialized with Gemini API.")
@@ -23,5 +24,3 @@ class ChatBot:
             logging.error(f"Error generating response: {e}")
             return "Sorry, I encountered an error. Please try again later."
 
-api_key = "AIzaSyA9Q4j0JqXyR50Xj-uYgfM49nbQoMg7pMs"  
-chatbot = ChatBot(api_key)
