@@ -10,7 +10,7 @@ class ChatBot:
         # Configure Gemini API
         api_key = "AIzaSyA9Q4j0JqXyR50Xj-uYgfM49nbQoMg7pMs"  
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel("gemini-pro") 
+        self.model = genai.GenerativeModel("gemini-1.5-pro-latest") 
         logging.debug("ChatBot initialized with Gemini API.")
 
     def get_response(self, user_input):
