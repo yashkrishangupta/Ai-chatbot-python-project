@@ -4,3 +4,4 @@ flask-sqlalchemy
 psycopg2-binary
 email_validator
 gunicorn
+google-generativeai
