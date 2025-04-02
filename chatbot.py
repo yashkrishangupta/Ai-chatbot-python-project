@@ -119,7 +119,6 @@ class ChatBot:
         # Configure Gemini API
         api_key = "AIzaSyA9Q4j0JqXyR50Xj-uYgfM49nbQoMg7pMs"
         genai.configure(api_key=api_key)
-        self.gemini_prompt = "You are a helpful and concise AI chatbot. Keep responses short and relevant."
         logging.debug("ChatBot initialized with rule-based responses and Gemini AI fallback.")
     
     def get_response(self, user_input):
@@ -138,7 +137,8 @@ class ChatBot:
         # If no pattern matched, use Gemini API
         try:
             logging.debug("No pattern matched. Using Gemini AI for response.")
-            response = self.model.generate_content(f"{self.gemini_prompt}\nUser: {user_input}")
+            gemini_prompt = "You are a helpful and concise AI chatbot. Keep responses short and relevant."
+            response = self.model.generate_content(f"{gemini_prompt}\nUser: {user_input}")
             return response.text.strip()
         except Exception as e:
             logging.error(f"Error generating response: {e}")
