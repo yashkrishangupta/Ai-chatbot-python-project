@@ -138,7 +138,7 @@ class ChatBot:
         try:
             logging.debug("No pattern matched. Using Gemini AI for response.")
             gemini_prompt = "You are a helpful and concise AI chatbot. Keep responses short and relevant."
-            response = self.model.generate_content(f"{gemini_prompt}\nUser: {user_input}")
+            response = self.model.generate_content(user_input)
             return response.text.strip()
         except Exception as e:
             logging.error(f"Error generating response: {e}")
