@@ -120,7 +120,7 @@ class ChatBot:
         api_key = "AIzaSyA9Q4j0JqXyR50Xj-uYgfM49nbQoMg7pMs"
         genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel("gemini-1.5-pro-latest")
-        self.gemini_prompt = "You are a helpful and concise AI chatbot. Keep responses short and relevant."
+        self.gemini_prompt = "You are a helpful and concise AI chatbot. Keep responses short ,relevant and give real time data too if asked."
         logging.debug("ChatBot initialized with rule-based responses and Gemini AI fallback.")
     
     def get_response(self, user_input):
