@@ -20,9 +20,8 @@ class ChatBot:
             ]),
             
             # Questions about the bot owner
-            (r'\b(who is owner|who is your host)\b', [
-                "Yash Krishan Gupta",
-            ]),
+            (r'\b(who (is|’s) your (owner|host))\b', 
+             ["Yash Krishan Gupta"]),
 
             # Questions about the bot
             (r'\b(who are you|what are you)\b', [
