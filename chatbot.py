@@ -25,11 +25,3 @@ class ChatBot:
 
 api_key = "AIzaSyA9Q4j0JqXyR50Xj-uYgfM49nbQoMg7pMs"  
 chatbot = ChatBot(api_key)
-
-while True:
-    user_input = input("You: ")
-    if user_input.lower() in ["exit", "quit", "bye"]:
-        print("ChatBot: Goodbye!")
-        break
-    response = chatbot.get_response(user_input)
-    print("ChatBot:", response)
