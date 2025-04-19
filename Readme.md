@@ -1,12 +1,12 @@
 # AI Assistant Chatbot Website
 
-A sleek, responsive chatbot website powered by Python (Flask) and vanilla JavaScript. This project features a rule-based AI assistant that engages in dynamic conversations, answers questions, tells jokes, and provides information on a variety of topics.
+A sleek, responsive chatbot website powered by Python (Flask), vanilla JavaScript, and Gemini AI. This project features a hybrid chatbot combining rule-based patterns with Gemini API for dynamic, intelligent conversations.
 
 ---
 
 ## Features
 
-- **🤖 Intelligent Chatbot:** Rule-based chatbot with 22 conversation patterns
+- **🤖 Intelligent Chatbot:** Hybrid chatbot combining 22 rule-based conversation patterns and Gemini AI API
 - **📬 Interactive Interface:** Typing indicators, timestamps, and user-friendly chat interface
 - **🎨 Modern Design:** Beautiful, responsive design using Bootstrap dark theme
 - **📲 Mobile-Friendly:** Optimized for all devices with responsive layout
@@ -19,7 +19,7 @@ A sleek, responsive chatbot website powered by Python (Flask) and vanilla JavaSc
 
 ## Technologies Used
 
-- **Backend:** Python with Flask
+- **Backend:** Python with Flask, Gemini AI API
 - **Frontend:** HTML5, CSS3, JavaScript (Vanilla)
 - **Styling:** Bootstrap 5 (dark theme)
 - **Icons:** Font Awesome
@@ -33,7 +33,8 @@ A sleek, responsive chatbot website powered by Python (Flask) and vanilla JavaSc
 .
 ├── main.py                # Entry point for the application
 ├── app.py                 # Flask application setup
-├── chatbot.py             # Chatbot logic with pattern matching
+├── chatbot.py             # Chatbot logic with pattern matching and Gemini AI
+├── wsgi.py                # WSGI file for deployment
 ├── static/
 │   ├── css/
 │   │   └── custom.css     # Custom styling
@@ -52,6 +53,7 @@ A sleek, responsive chatbot website powered by Python (Flask) and vanilla JavaSc
 
 - Python 3.6 or higher
 - pip (Python package installer)
+- Gemini API key (for enhanced AI capabilities)
 
 ### Installation
 
@@ -63,15 +65,20 @@ A sleek, responsive chatbot website powered by Python (Flask) and vanilla JavaSc
 
 2. Install the required packages:
    ```bash
-   pip install flask gunicorn
+   pip install flask gunicorn requests
    ```
 
-3. Run the application:
+3. Set your Gemini API key in your environment:
    ```bash
-   gunicorn --bind 0.0.0.0:5000 --reuse-port --reload main:app
+   export GEMINI_API_KEY=your_key_here
    ```
 
-4. Open your browser and navigate to: `http://localhost:5000`
+4. Run the application:
+   ```bash
+   gunicorn --bind 0.0.0.0:5000 --reuse-port --reload wsgi:app
+   ```
+
+5. Open your browser and navigate to: `http://localhost:5000`
 
 ---
 
@@ -86,18 +93,19 @@ The AI Assistant can respond to a wide range of topics and queries, including:
 - Interesting facts
 - Questions about AI and technology
 - Philosophical inquiries
-- Topics like music, movies, and books
+- Music, movies, and books
 - And much more!
+
+When no rule-based pattern matches, Gemini AI takes over to provide smart and contextual responses.
 
 ---
 
 ## Customization
 
-Expand the chatbot's knowledge by adding new patterns to the `self.patterns` list in `chatbot.py`:
+You can expand the chatbot’s rule-based knowledge by editing the `self.patterns` list in `chatbot.py`:
 
 ```python
 self.patterns = [
-    # Add your new pattern here
     (r'\b(your pattern regex)\b', [
         "Response option 1",
         "Response option 2",
@@ -117,6 +125,9 @@ This application is ready to deploy on platforms like:
 - **Heroku**
 - **PythonAnywhere**
 - **AWS, GCP, or Azure**
+- **Render**
+
+Use `wsgi.py` for production deployment with Gunicorn or other WSGI-compatible servers.
 
 ---
 
@@ -125,27 +136,18 @@ This application is ready to deploy on platforms like:
 Potential improvements for this project:
 
 - Add user accounts for personalized conversations
-- Integrate advanced NLP models for smarter interactions
-- Add real-time data access for weather, news, and more
-- Implement a learning mechanism for the chatbot
-- Add voice input/output capabilities
-- Enable multi-language support
-
----
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+- Integrate more advanced NLP models
+- Learning mechanism for the chatbot
+- Voice input/output capabilities
+- Multi-language support
 
 ---
 
 ## Acknowledgments
 
+- **Gemini AI:** For powerful AI-driven conversational support
 - **Bootstrap:** For the responsive design framework
 - **Font Awesome:** For beautiful icons
 - **Flask:** For the powerful web framework
 
 ---
-
-Enjoy your new AI Assistant! If you have any questions or feedback, feel free to open an issue or submit a pull request.
-
